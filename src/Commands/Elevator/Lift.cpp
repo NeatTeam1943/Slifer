@@ -1,38 +1,37 @@
-#include "ExampleCommand.h"
+#include "Lift.h"
 
-ExampleCommand::ExampleCommand()
+Lift::Lift()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(elevator);
 }
 
 // Called just before this Command runs the first time
-void ExampleCommand::Initialize()
+void Lift::Initialize()
 {
-
+	elevator->Move(0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ExampleCommand::Execute()
+void Lift::Execute()
 {
-
+	elevator->Move(1);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ExampleCommand::IsFinished()
+bool Lift::IsFinished()
 {
-	return false;
+	return elevator->GetUpSwitch();
 }
 
 // Called once after isFinished returns true
-void ExampleCommand::End()
+void Lift::End()
 {
-
+	elevator->Move(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ExampleCommand::Interrupted()
+void Lift::Interrupted()
 {
-
+	End();
 }

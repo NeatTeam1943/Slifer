@@ -1,13 +1,13 @@
-#ifndef EXAMPLE_COMMAND_H
-#define EXAMPLE_COMMAND_H
+#ifndef PutToSmartDashboard_H
+#define PutToSmartDashboard_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ExampleCommand: public CommandBase
+class PutToSmartDashboard: public CommandBase
 {
 public:
-	ExampleCommand();
+	PutToSmartDashboard();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
